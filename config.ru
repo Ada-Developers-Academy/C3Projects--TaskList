@@ -1,2 +1,5 @@
+# require './site'
+# run TaskList::Database::site
+
 require './site'
-run TaskList::Database
+run Site

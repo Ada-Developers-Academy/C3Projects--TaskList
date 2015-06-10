@@ -1,14 +1,13 @@
 require "sinatra"
 require "sinatra/reloader"
 
-module TaskList
-  class Database < Sinatra::Base
+# module TaskList
+  class Site < Sinatra::Base
     register Sinatra::Reloader
 
-  get "/" do
-    erb :tasks # need to create tasks.erb view and then create_task.erb also
+    get "/" do
+      erb :tasks # need to create tasks.erb view and then create_task.erb also
+    end
 
   end
-
-  end
-end
+# end
