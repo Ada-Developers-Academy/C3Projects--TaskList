@@ -7,5 +7,10 @@ module TaskList
       query!("SELECT * FROM tasklist;")
     end
 
+    def create_tasks(arguments)
+      query!(
+        "INSERT INTO tasklist (name, description, completed_date) VALUES (#{arguments});")
+    end
+
   end
 end
