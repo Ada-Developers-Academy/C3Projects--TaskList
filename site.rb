@@ -18,9 +18,11 @@ class Site < Sinatra::Base
   end
 
   post "/create_tasks" do
+    task = params["new_task"]
     the_database = TaskList::TaskMaster.new("tasklist.db")
-    the_database.create_tasks(params[:new_task])
-    puts params[:new_task]
+    the_database.create_tasks(task)
+    puts "here are the params: #{params}"
+    puts "here is the task: #{task}"
     erb :create_tasks
   end
 
