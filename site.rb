@@ -8,8 +8,15 @@ require './lib/taskmaster'
     register Sinatra::Reloader
 
     get "/" do
-      # @all_tasks = TaskList::TaskMaster.get_all_tasks
+
+      # TaskList::TaskMaster.get_all_tasks
+      # above def isn't working
       erb :tasks
     end
+
+    get "/create_tasks" do
+      erb :create_tasks
+    end
+  
 
   end
