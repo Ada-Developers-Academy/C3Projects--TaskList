@@ -6,12 +6,10 @@
       </li>
   <% @all_tasks.each do |row| %>
       <li>
-        <% row.map do |item| %>
-        <%= item %>,
+        <% row.each do |id, name, desc, date| %>
+        <%= id %> <%= name %> <%= desc %> <%= date %>
         <% end %>
+        <a href="#">Delete?</a>
       </li>
   <% end %>
     </ul>
-
-
-<a href="/create_tasks">Click</a> to create a new task!

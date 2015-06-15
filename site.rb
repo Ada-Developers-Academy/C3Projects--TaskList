@@ -26,5 +26,11 @@ class Site < Sinatra::Base
     erb :create_tasks
   end
 
-
+  post "/delete" do
+    # create delete confirm page, make a form to post delete command, which executes a sql delete statement
+    task_id = params["new_task"]["id"]
+    the_database = TaskList::TaskMaster.new("tasklist.db")
+    the_database.delete_tasks(task_id)
+    erb :tasks
+  end
 end
