@@ -1,9 +1,17 @@
 <h1>Hello Taste-Master Blasters!</h1>
-<p>
+  <h2>Task List</h2>
+    <ul>
+      <li>
+        #, Name, Description, Completed Date
+      </li>
   <% @all_tasks.each do |row| %>
-    <%= row %>
+      <li>
+        <% row.map do |item| %>
+        <%= item %>,
+        <% end %>
+      </li>
   <% end %>
-</p>
+    </ul>
 
 
 <a href="/create_tasks">Click</a> to create a new task!

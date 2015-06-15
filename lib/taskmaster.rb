@@ -4,16 +4,14 @@ module TaskList
   class TaskMaster < Database
 
     def get_all_tasks
-      query!("SELECT * FROM tasklist;")
+      query!("SELECT * FROM tasklist;") # (statement in parens)
     end
 
     def create_tasks(task)
       # task( [name, desc, date] )
 
-      # something incorrect with params and how we're referencing them.  probably interpolation.
       query!("INSERT INTO tasklist (name, description, completed_date) VALUES ('#{task['name']}', '#{task['description']}', '#{task['date']}');")
-      #mquery!("INSERT INTO tasklist (name, description, completed_date) VALUES (ronnie, 'asdf', '');")
-
+      # takes data from the form (parens is a string, new task is an array) and interpolates it into a dql values statement, so db can use it
     end
 
   end

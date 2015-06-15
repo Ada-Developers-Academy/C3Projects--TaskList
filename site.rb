@@ -19,10 +19,10 @@ class Site < Sinatra::Base
 
   post "/create_tasks" do
     task = params["new_task"]
+    # task variable assigned to params hash
     the_database = TaskList::TaskMaster.new("tasklist.db")
     the_database.create_tasks(task)
-    puts "here are the params: #{params}"
-    puts "here is the task: #{task}"
+    # calls create_task method on the new_task array, which inherits the query method
     erb :create_tasks
   end
 
