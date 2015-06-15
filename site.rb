@@ -10,6 +10,7 @@ class Site < Sinatra::Base
   get "/" do
     the_database = TaskList::TaskMaster.new("tasklist.db") # opens communication with the database
     @all_tasks = the_database.get_all_tasks
+    puts @all_tasks.class
     erb :tasks
   end
 
@@ -26,11 +27,18 @@ class Site < Sinatra::Base
     erb :create_tasks
   end
 
-  post "/delete" do
+  get "/delete/:id" do
+    erb :delete
+
+  end
+
+  post "/delete/:id" do
     # create delete confirm page, make a form to post delete command, which executes a sql delete statement
-    task_id = params["new_task"]["id"]
+    erb :tasks if params[decide] = "no"
+
+
     the_database = TaskList::TaskMaster.new("tasklist.db")
-    the_database.delete_tasks(task_id)
+    # the_database.delete_tasks()
     erb :tasks
   end
 end

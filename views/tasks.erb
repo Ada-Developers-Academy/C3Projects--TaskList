@@ -4,12 +4,12 @@
       <li>
         #, Name, Description, Completed Date
       </li>
-  <% @all_tasks.each do |row| %>
+      <% @all_tasks.each.map do |id, name, desc, date| %>
       <li>
-        <% row.each do |id, name, desc, date| %>
-        <%= id %> <%= name %> <%= desc %> <%= date %>
-        <% end %>
-        <a href="#">Delete?</a>
+      <%= id %>,  <%= name %>, <%= desc %>, <%= date %>
+
+        <a href="delete/<%=id%>">Delete?</a>
+      <% end %>
       </li>
-  <% end %>
+
     </ul>
