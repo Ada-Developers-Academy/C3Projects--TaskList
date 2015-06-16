@@ -29,20 +29,19 @@ class Site < Sinatra::Base
 
   get "/delete/:id" do
     erb :delete
-
   end
 
   post "/delete/:id" do
+    # pulls "yes"/"no" decision from the delete confirmation page
     decision = params["decide"]
-    task_id = params[:id]
+    task_id = params[:id] # is this coming from the route or from the tasks.erb delete link???
 
-    if decision == "no"
-    else
+    if decision == "yes" # delete confirmation
       the_database = TaskList::TaskMaster.new("tasklist.db")
       the_database.delete_tasks(task_id)
     end
-
+    # return to updated db on homepage
     redirect to "/"
   end
-  
+
 end

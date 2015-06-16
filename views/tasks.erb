@@ -1,15 +1,14 @@
-<h1>Hello Taste-Master Blasters!</h1>
+<h1>Hello Task-Master Blasters!</h1>
   <h2>Task List</h2>
     <ul>
       <li>
-        #, Name, Description, Completed Date
+        <strong>#, Name, Description, Completed Date</strong>
       </li>
+      <!-- database is 2D array, so maps out each row's cells into a list item -->
       <% @all_tasks.each.map do |id, name, desc, date| %>
       <li>
-      <%= id %>,  <%= name %>, <%= desc %>, <%= date %>
-
-        <a href="delete/<%=id%>">Delete?</a>
+        <!-- associates record via id with delete link -->
+      <%= id %>,  <%= name %>, <%= desc %>, <%= date %>, <a href="delete/<%=id%>">Delete?</a>
       <% end %>
       </li>
-
     </ul>

@@ -8,10 +8,4 @@ db.execute "CREATE TABLE tasklist(
     completed_date TEXT
   );"
 
-db.execute "INSERT INTO tasklist (id, name) VALUES (1, 'testy');"
-
-puts *db
-# display database somehow
-
-
 db.close if db
