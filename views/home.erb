@@ -1,0 +1,27 @@
+<h1>Welcome to the tasklist database</h1>
+
+<a href="add_task">Add a new task to the list!</a>
+<p>
+
+  <form action="/" method="post">
+    <fieldset>
+      <legend>To Do List:</legend>
+      <ul>
+      <% @to_do.each do |task| %>
+        <li><input type="radio" name="task" value=<%= task[0] %> /><%= task %></li>
+      <% end %>
+      </ul>
+      <form action="/">
+        <input type="submit" value="Mark as complete"/>
+      </form>
+    </fieldset>
+  </form>
+
+  <fieldset>
+    <legend>Completed Tasks:</legend>
+    <ul>
+      <% @completed_tasks.each do |task| %>
+        <li><%= task %></li>
+      <% end %>
+    </ul>
+  </fieldset>
